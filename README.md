@@ -2,6 +2,8 @@
 This repository helps preparing for the BIDS lecture (authored by Robert Haase) exam by generating exam-like questions and searching for the corresponding slides in the slide deck from the lecture.
 
 
+
+
 ### Before getting started
 To access the VLM used in this repository, this [free Service from Github](https://github.com/marketplace/models) is used.
 
@@ -27,9 +29,12 @@ Code was only tested for Python 3.10.12. To run the code, you have to re-create 
 ```pip install -r requirements.txt```
 
 
+
+
 ### Notebooks
 #### [1_Download_Slides](1_Download_Slides.ipynb)
 Downloads all PDF files from the [BIDS lecture 2025](https://zenodo.org/records/15698366) authored by Robert Haase and licensed under CC-BY-4.0. 
+
 
 
 #### [2_Index_Slides](2_Index_Slides.ipynb)
@@ -42,6 +47,7 @@ It uses [poppler](https://poppler.freedesktop.org/) under hood, which also has t
 
 ##### conda:
 ```conda install -c conda-forge poppler```
+
 
 
 #### [3_Generate_Questions](3_Generate_Questions.ipynb)
