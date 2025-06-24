@@ -28,11 +28,11 @@ Code was only tested for Python 3.10.12. To run the code, you have to re-create 
 
 
 ### Notebooks
-#### 1. [1_Download_Slides](SlideInsights-for-BIDS-lecture-25/1_Download_Slides.ipynb)
+#### 1. [1_Download_Slides](1_Download_Slides.ipynb)
 Downloads all PDF files from the [BIDS lecture 2025](https://zenodo.org/records/15698366) authored by Robert Haase and licensed under CC-BY-4.0. 
 
 
-#### 2. [2_Index_Slides](SlideInsights-for-BIDS-lecture-25/2_Index_Slides.ipynb)
+#### 2. [2_Index_Slides](2_Index_Slides.ipynb)
 Creates and saves an index to search for Slides that best match to a text query.For this, the [byaldi](https://github.com/AnswerDotAI/byaldi) package is used. 
 
 It uses [poppler](https://poppler.freedesktop.org/) under hood, which also has to be installed in order to make this work. 
@@ -44,7 +44,7 @@ It uses [poppler](https://poppler.freedesktop.org/) under hood, which also has t
 ```conda install -c conda-forge poppler```
 
 
-#### 3. [3_Generate_Questions](SlideInsights-for-BIDS-lecture-25/3_Generate_Questions.ipynb)
+#### 3. [3_Generate_Questions](3_Generate_Questions.ipynb)
 A query with the desired question topic is sent to the RAG Model to fetch some slides with similar contents. These slides are then passed to the VLM to generate the questions.
 
 To check whether one could answer correctly, the slides can then be reconstructed and visualized.
