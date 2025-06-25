@@ -38,7 +38,10 @@ Downloads all PDF files from the [BIDS lecture 2025](https://zenodo.org/records/
 
 
 #### [2_Index_Slides](2_Index_Slides.ipynb)
-Creates and saves an index to search for Slides that best match to a text query.For this, the [byaldi](https://github.com/AnswerDotAI/byaldi) package is used. 
+Fetches pre-computed index files from [Zenodo](https://zenodo.org/records/15737931) and uses these Index to match an example Query to the Lecture Slides.
+
+*OPTIONALLY:*
+Creates and saves an index to search for Slides that best match to a text query. For this, the [byaldi](https://github.com/AnswerDotAI/byaldi) package is used. 
 
 It uses [poppler](https://poppler.freedesktop.org/) under hood, which also has to be installed in order to make this work. 
 
