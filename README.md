@@ -62,4 +62,5 @@ To check whether one could answer correctly, the slides can then be reconstructe
 
 ### Citation
 To cite the material used in this repository you can use the following citation:
+
 Haase, R. (2025, June 19). Bio-image Data Science Lectures 2025 @ Uni Leipzig / ScaDS.AI. Zenodo. https://doi.org/10.5281/zenodo.15698366
