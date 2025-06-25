@@ -7,7 +7,7 @@ This repository helps preparing for the [BIDS lecture 2025](https://zenodo.org/r
 ### Before getting started
 To access the VLM used in this repository, this [free Service from Github](https://github.com/marketplace/models) is used.
 
-***Be aware that there are certain [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits) for each model!***
+Be aware that there are certain [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits) for each model!
 
 Make sure to generate a developer key / personal access token on Github and set it as an environment variable. You can generate the token via the [Github website](github.com) under user settings and afterwards set it like this for your current session:
 
