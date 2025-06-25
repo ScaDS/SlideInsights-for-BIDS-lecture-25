@@ -1,5 +1,5 @@
 # Slide Insights for the BIDS Lecture 2025 
-This repository helps preparing for the BIDS lecture (authored by Robert Haase) exam by generating exam-like questions and searching for the corresponding slides in the slide deck from the lecture.
+This repository helps preparing for the [BIDS lecture 2025](https://zenodo.org/records/15698366) (authored by Robert Haase) exam by generating exam-like questions and searching for the corresponding slides in the slide deck from the lecture.
 
 
 
@@ -54,3 +54,10 @@ It uses [poppler](https://poppler.freedesktop.org/) under hood, which also has t
 A query with the desired question topic is sent to the RAG Model to fetch some slides with similar contents. These slides are then passed to the VLM to generate the questions.
 
 To check whether one could answer correctly, the slides can then be reconstructed and visualized.
+
+
+
+
+
+To cite the material used in this repository you can use the following citation:
+Haase, R. (2025, June 19). Bio-image Data Science Lectures 2025 @ Uni Leipzig / ScaDS.AI. Zenodo. https://doi.org/10.5281/zenodo.15698366
