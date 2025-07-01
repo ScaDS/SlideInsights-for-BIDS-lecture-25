@@ -60,6 +60,12 @@ To check whether one could answer correctly, the slides can then be reconstructe
 
 
 
+### Streamlit App
+The streamlit app is a simple chat interface to perform the task implemented in the [third Notebook](3_Generate_Questions.ipynb). You can trigger the model to generate exam-like questions to a certain topic (use one of the trigger words *quiz, generate, exam, questions, exam-like, question* in your query). Afterwards, you can take a look at the corresponding slided (use one of the trigger words *images, image, slide, slides*).
+
+You can run the App with the following command:
+##### bash:
+```streamlit run streamlit_Github_models.py```
 
 
 
