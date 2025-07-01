@@ -86,10 +86,6 @@ def main():
     token = os.environ["GITHUB_TOKEN"]
     endpoint = "https://models.github.ai/inference"
     client = OpenAI(base_url=endpoint,api_key=token)
-
-    # === DESIGN ===
-    # Logo
-    #st.image("logo.png", width=150)
     
     # title
     st.title("💬 SlideInsight Chatbot for the Bio-Image Data Science Lecture")
