@@ -93,7 +93,7 @@ def main():
     
     # title
     st.title("💬 SlideInsight Chatbot for the Bio-Image Data Science Lecture")
-    st.markdown("*Explore Presentation Slides from the BIDS Lecture 2025")
+    st.markdown("Explore Presentation Slides from the [BIDS lecture 2025](https://zenodo.org/records/15698366) (authored by Robert Haase).")
     
     # sidebar
     with st.sidebar:
