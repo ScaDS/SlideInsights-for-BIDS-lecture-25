@@ -65,7 +65,7 @@ The streamlit app is a simple chat interface to perform the task implemented in 
 
 You can run the App with the following command:
 ##### bash:
-```streamlit run streamlit_Github_models.py```
+```streamlit run streamlit_GitHub_models.py```
 
 
 
