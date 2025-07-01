@@ -3,3 +3,4 @@ requests
 matplotlib
 openai
 numpy
+streamlit
