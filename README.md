@@ -22,7 +22,7 @@ Make sure to generate a developer key / personal access token on Github and set 
 ```set GITHUB_TOKEN= your-github-token-goes-here```
 
 **Optionally, you can also use local vision models, like [gemma3:4b](https://ollama.com/library/gemma3:4b) or [qwen2_5vl_3b](https://ollama.com/library/qwen2.5vl:3b). You can download them using [Ollama](https://ollama.com/).** 
-Following instructions on the Ollama Website (or from the [Course Material](https://github.com/ScaDS/BIDS-lecture-2025/blob/main/08a_llm_endpoints/02_ollama_endpoint.ipynb)) to download the models and get them running before executing the code from this repository.
+Follow instructions on the Ollama Website (or from the [Course Material](https://github.com/ScaDS/BIDS-lecture-2025/blob/main/08a_llm_endpoints/02_ollama_endpoint.ipynb)) to download the models and get them running before executing the code from this repository.
 
 
 ### Create a conda environment
