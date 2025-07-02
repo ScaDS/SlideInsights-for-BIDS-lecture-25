@@ -21,6 +21,9 @@ Make sure to generate a developer key / personal access token on Github and set 
 ##### Windows command prompt:
 ```set GITHUB_TOKEN= your-github-token-goes-here```
 
+**Optionally, you can also use local vision models, like [gemma3:4b](https://ollama.com/library/gemma3:4b) or [qwen2_5vl_3b](https://ollama.com/library/qwen2.5vl:3b). You can download them using [Ollama](https://ollama.com/).** 
+Following instructions on the Ollama Website (or from the Course Material) to download the models and get them running before executing the code from this repository.
+
 
 ### Create a conda environment
 Code was only tested for Python 3.10.12. To run the code, you have to re-create the conda/ virtual environment. Create a new one and install all packages with
@@ -63,9 +66,14 @@ To check whether one could answer correctly, the slides can then be reconstructe
 ### Streamlit App
 The streamlit app is a simple chat interface to perform the task implemented in the [third Notebook](3_Generate_Questions.ipynb). You can trigger the model to generate exam-like questions to a certain topic (use one of the trigger words *quiz, generate, exam, questions, exam-like, question* in your query). Afterwards, you can take a look at the corresponding slided (use one of the trigger words *images, image, slide, slides*).
 
-You can run the App with the following command:
+You can run the App using the Github Marketplace models with the following command:
 ##### bash:
 ```streamlit run streamlit_GitHub_models.py```
+
+Alternatively, you can use local models and set the corresponding FLAG in the script first, then run:
+##### bash:
+```streamlit run streamlit_local_models.py```
+
 
 
 
