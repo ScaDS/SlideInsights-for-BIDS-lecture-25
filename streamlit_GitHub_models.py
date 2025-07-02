@@ -7,6 +7,8 @@ from PIL import Image
 import base64
 import time
 
+# Set up token
+token = os.environ["GITHUB_TOKEN"]
 
 def extract_topic(user_input, model_name, openai_client):
     """
@@ -35,7 +37,6 @@ def generate_quiz(user_topic:str, model, num_slides = 4, num_questions = 2):
     Second, those slides are used to formulate some exam-like questions that refer to the slides content, i.e. the desired topic from the user input.
     """
 
-    token = os.environ["GITHUB_TOKEN"]
     endpoint = "https://models.github.ai/inference"
     client = OpenAI(base_url=endpoint,api_key=token)
     
@@ -83,7 +84,6 @@ def generate_quiz(user_topic:str, model, num_slides = 4, num_questions = 2):
 
 def main():
     # Set your OpenAI API key (or use environment variable)
-    token = os.environ["GITHUB_TOKEN"]
     endpoint = "https://models.github.ai/inference"
     client = OpenAI(base_url=endpoint,api_key=token)
     
