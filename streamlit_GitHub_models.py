@@ -99,12 +99,10 @@ def main():
             st.session_state.images = []  # reset images too
             st.success("Chat reset!")
 
-        st.markdown("Reset has to be done after adapting variables from the SlideBar")
-        st.markdown("##")
+        st.markdown("Reset has to be done after changing variables from the SlideBar")
         st.markdown("##")
         
         st.title("Trigger Words:")
-        st.markdown("##")
         st.markdown("To trigger the **creation of questions** use one of the following words in your query:")
         st.markdown("_quiz, generate, exam, questions, exam-like, question_")
         st.markdown("To trigger the model to **show the relevant slides** for the current topic use one of the following words in your query:")
@@ -138,7 +136,7 @@ def main():
         st.markdown("##")
         st.markdown("##")
         st.markdown("### 👋 Hello there!")
-        st.markdown("You can start chatting by typing your message below. ")
+        st.markdown("Use the trigger words found in the sidebar on the left to let the model generate questions about the lecture and show you the corresponding slides.")
 
     # Initialize chat history
     if "messages" not in st.session_state or not st.session_state.messages:
@@ -158,12 +156,15 @@ def main():
     if user_input:
         # Store user's message
         st.session_state.messages.append({"role": "user", "content": user_input})
-        with st.chat_message("user", avatar="👤"):
+        with st.chat_message("user"):
             st.markdown(user_input)
 
-        # Detect intent to process uploaded files directly
-        if any(trigger in user_input.lower() for trigger in ["quiz", "generate", "exam", "questions", "exam-like", "question" ]):
-            with st.chat_message("assistant", avatar="🤖"):
+        # Question generation
+        if (
+            any(trigger in user_input.lower() for trigger in ["quiz", "generate", "exam", "questions", "exam-like", "question" ]) and
+            not any(trigger in user_input.lower() for trigger in ["images", "image", "slide", "slides"])
+        ):
+            with st.chat_message("assistant"):
                 with st.spinner("Generating Questions ... "):
                     try:
                         topic = extract_topic(user_input, model_name, client)
@@ -182,15 +183,18 @@ def main():
                         st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
 
 
-        
-        elif any(trigger in user_input.lower() for trigger in ["images", "image", "slide", "slides"]):
-            with st.chat_message("assistant", avatar="🤖"):
+        # Slide presentation
+        elif (
+            any(trigger in user_input.lower() for trigger in ["images", "image", "slide", "slides"]) and
+            not any(trigger in user_input.lower() for trigger in ["quiz", "generate", "exam", "questions", "exam-like", "question" ])
+        ):
+            with st.chat_message("assistant"):
                 with st.spinner("Fetching relevant slides ..."):
                     try:
                         if "images" in st.session_state and st.session_state.images:
                             st.markdown("### Related Slides:")
                             for img in st.session_state.images:
-                                st.image(img, use_column_width=True)
+                                st.image(img, use_container_width=True)
                             assistant_reply = "Here are the slides related to your last topic."
                             st.markdown(assistant_reply)
                             st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
@@ -204,16 +208,25 @@ def main():
                         assistant_reply = "Sorry, I couldn't process query. Do you want me to generate exam-like questions or to show you the slides from your last set of questions?"
                         st.markdown(assistant_reply)
 
-
-                        
+        # Trigger words for both
+        elif (
+            any(trigger in user_input.lower() for trigger in ["images", "image", "slide", "slides"]) and
+            any(trigger in user_input.lower() for trigger in ["quiz", "generate", "exam", "questions", "exam-like", "question" ])
+        ):
+            with st.chat_message("assistant"):
+                        assistant_reply =  "Please use only trigger words for either questions generation OR presentation of slides. You can find the corresponding trigger words on the left."
+                        st.markdown(assistant_reply)
+                        st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
+            
+        # No trigger words                
         else:
-            with st.chat_message("assistant", avatar="🤖"):
+            with st.chat_message("assistant"):
                     with st.spinner("No trigger words found. Preparing fallback response ..."):
                         fallback_response = client.chat.completions.create(model=model_name, messages=st.session_state.messages)
                         assistant_reply =  fallback_response.choices[0].message.content
-                        time.sleep(4)  # keep spinner visible for at least 4 seconds
+                        time.sleep(3)  # keep spinner visible for at least 4 seconds
                         st.markdown(assistant_reply)
-                        st.session_state.messages.append({"role": "assistant", "content": assistant_reply})  # then persist
+                        st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
     
 
 
